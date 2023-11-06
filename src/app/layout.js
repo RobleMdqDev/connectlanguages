@@ -1,12 +1,12 @@
 import "./globals.css";
 
-import { Inter } from "next/font/google";
-import { PrismicText } from "@prismicio/react";
-import { PrismicNextLink, PrismicPreview } from "@prismicio/next";
+import {Inter} from "next/font/google";
+import {PrismicText} from "@prismicio/react";
+import {PrismicNextLink, PrismicPreview} from "@prismicio/next";
 import * as prismic from "@prismicio/client";
 
-import { createClient, repositoryName } from "@/prismicio";
-import { Bounded } from "@/components/Bounded";
+import {createClient, repositoryName} from "@/prismicio";
+import {Bounded} from "@/components/Bounded";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,10 +17,10 @@ const inter = Inter({
 /**
  * @param {{ children: React.ReactNode }}
  */
-export default async function RootLayout({ children }) {
+export default async function RootLayout({children}) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="overflow-x-hidden antialiased">
+    <html lang="en" className={`${inter.variable} h-full`}>
+      <body className="overflow-x-hidden antialiased h-full">
         {/* @ts-expect-error Async Server Component */}
         <Header />
         {children}

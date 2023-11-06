@@ -1,3 +1,6 @@
-export default function Register() {
-  return <div>Register</div>;
+import Image from "next/image";
+import RegisterForm from "./form";
+
+export default async function Register() {
+  return <RegisterForm />;
 }

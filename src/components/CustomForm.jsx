@@ -3,12 +3,15 @@ import CustomInput from "@/components/CustomInput";
 import Image from "next/image";
 import {useRouter} from "next/navigation";
 import {useForm} from "react-hook-form";
+import {signIn} from "next-auth/react";
 
 export default function CustomForm({
   inputOptions,
   apiRoute,
   fetchMethod,
   redirect,
+  buttonText,
+  formType,
 }) {
   const route = useRouter();
 
@@ -20,20 +23,32 @@ export default function CustomForm({
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      const res = await fetch(apiRoute, {
-        method: fetchMethod,
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      if (formType === "login") {
+        const res = await signIn("credentials", {
+          email: data.email,
+          password: data.password,
+          redirect: false,
+        });
 
-      const resJson = await res.json();
-      if (!res.ok) throw new Error(resJson.message);
+        if (res.error) throw new Error(res.error);
+        console.log(res);
+      } else {
+        const res = await fetch(apiRoute, {
+          method: fetchMethod,
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
 
-      console.log("Success", resJson);
+        const resJson = await res.json();
+        if (!res.ok) throw new Error(resJson.message);
+      }
 
-      if (redirect) route.push(redirect);
+      if (redirect) {
+        route.push(redirect);
+        route.refresh();
+      }
     } catch (error) {
       console.error(error);
     }
@@ -68,7 +83,7 @@ export default function CustomForm({
               type="submit"
               className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
-              Sign up
+              {buttonText || "Confirm"}
             </button>
           </div>
         </form>

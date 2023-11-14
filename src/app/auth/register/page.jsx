@@ -8,6 +8,7 @@ export default async function Register() {
       fetchMethod={"POST"}
       inputOptions={inputConfig}
       redirect={"/auth/login"}
+      buttonText="Register"
     />
   );
 }

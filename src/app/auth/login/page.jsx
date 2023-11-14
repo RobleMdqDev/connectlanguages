@@ -1,5 +1,13 @@
-import LoginForm from "./form";
+import CustomForm from "@/components/CustomForm";
+import {inputConfig} from "./inputOptions";
 
 export default async function Login() {
-  return <LoginForm />;
+  return (
+    <CustomForm
+      inputOptions={inputConfig}
+      buttonText="Login"
+      formType="login"
+      redirect={"/"}
+    />
+  );
 }

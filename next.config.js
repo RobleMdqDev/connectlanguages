@@ -10,9 +10,6 @@ const nextConfig = async () => {
   const locales = repository.languages.map((lang) => lang.id);
 
   return {
-    experimental: {
-      serverActions: true,
-    },
     reactStrictMode: true,
     i18n: {
       // These are all the locales you want to support in

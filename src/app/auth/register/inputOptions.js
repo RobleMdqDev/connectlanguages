@@ -1,0 +1,57 @@
+export const inputConfig = [
+  {
+    name: "firstName",
+    id: "firstName",
+    type: "text",
+    placexholder: "First Name",
+    errorMessage: "",
+    required: true,
+    label: "First Name",
+    validationOptions: {
+      required: {
+        value: true,
+        message: `First name is required`,
+      },
+      minLength: {
+        value: 3,
+        message: `First name format is invalid`,
+      },
+    },
+  },
+  {
+    name: "lastName",
+    id: "lastName",
+    type: "text",
+    placeholder: "Last Name",
+    errorMessage: "",
+    required: true,
+    label: "Last Name",
+  },
+  {
+    name: "email",
+    id: "email",
+    type: "email",
+    placeholder: "Email address",
+    errorMessage: "",
+    required: true,
+    label: "Email address",
+  },
+  {
+    name: "password",
+    id: "password",
+    type: "password",
+    placeholder: "Your password",
+    errorMessage: "",
+    required: true,
+    label: "Password",
+  },
+  {
+    name: "confirmPassword",
+    id: "confirmPassword",
+    type: "password",
+    placeholder: "Confirm your password",
+    errorMessage: "",
+    required: true,
+    label: "Confirm Password",
+  },
+];

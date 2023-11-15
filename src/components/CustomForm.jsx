@@ -69,6 +69,7 @@ export default function CustomForm({
         <form onSubmit={onSubmit} className="space-y-6" action="#">
           {inputOptions.map((input) => (
             <CustomInput
+              key={input.name}
               id={input.name}
               type={input.type}
               label={input.label}

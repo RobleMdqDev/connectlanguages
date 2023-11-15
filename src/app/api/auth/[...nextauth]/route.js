@@ -40,6 +40,7 @@ export const authOptions = {
       },
     }),
   ],
+  secret: "secret",
 };
 const handler = NextAuth(authOptions);
 

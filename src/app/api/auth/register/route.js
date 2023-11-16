@@ -21,7 +21,7 @@ export async function POST(request) {
       );
 
     const hashedPassword = await hash(data.password, 10);
-    const newUser = await db.user.create({
+    await db.user.create({
       data: {
         firstName: data.firstName,
         lastName: data.lastName,

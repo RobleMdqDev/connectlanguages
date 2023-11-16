@@ -1,7 +1,7 @@
 import CustomForm from "@/components/CustomForm";
 import {inputConfig} from "./inputOptions";
 
-export default async function Login() {
+export default async function LoginPage() {
   return (
     <CustomForm
       inputOptions={inputConfig}

@@ -1,8 +1,7 @@
 "use client";
-
 import {signOut} from "next-auth/react";
 
-function DashboardPage() {
+async function DashboardPage() {
   return (
     <section className="flex flex-col justify-center items-center h-[calc(100vh-7rem)]">
       <h1 className="text-5xl">Dashboard</h1>
